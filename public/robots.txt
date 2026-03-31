@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cloudmedia.news/sitemap.xml
