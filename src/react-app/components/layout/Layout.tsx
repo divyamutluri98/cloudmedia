@@ -10,18 +10,22 @@ export function Layout({ children }: LayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0f0f0f] text-zinc-900 dark:text-[#f1f1f1] flex flex-col font-sans">
+    <div className="min-h-screen bg-white dark:bg-[#0F0F0F] flex flex-col font-roboto select-none transition-all duration-300">
       
-      {/* Header (Navbar) */}
+      {/* Header (YouTube Style Navbar) */}
       <Navbar onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
       
-      <div className="flex flex-1 h-[calc(100vh-56px)] overflow-hidden">
-        {/* Sidebar */}
+      <div className="flex pt-[56px] min-h-screen overflow-hidden">
+        {/* Navigation Control Hub (Dual-State Sidebar) */}
         <Sidebar isOpen={isSidebarOpen} />
         
-        {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto no-scrollbar scroll-smooth bg-[#f9f9f9] dark:bg-[#0f0f0f]">
-          <div className="w-full h-full max-w-[2400px] mx-auto">
+        {/* Content Engine Hub (YouTube Architecture) */}
+        <main className={`
+          flex-1 transition-all duration-300 overflow-x-hidden
+          ${isSidebarOpen ? 'lg:pl-[240px]' : 'lg:pl-[72px]'}
+          bg-white dark:bg-[#0F0F0F]
+        `}>
+          <div className="w-full max-w-[2200px] mx-auto min-h-full pb-20">
             {children}
           </div>
         </main>

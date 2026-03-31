@@ -1,109 +1,102 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-import { CATEGORIES } from '../../data/initialNews';
-import { useUIStore } from '../../stores/uiStore';
-import { supabase } from '../../lib/supabase';
-import { ChevronRight, ChevronLeft, Zap, Sparkles, Filter } from 'lucide-react';
-import { Badge } from '../ui/badge';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export function CategoryStrip() {
-  const [categories, setCategories] = useState<{name: string, slug: string}[]>([]);
-  const { selectedCategory, setSelectedCategory } = useUIStore();
+const CATEGORIES = [
+  'All', 'News', 'Technology', 'Entertainment', 'Sports', 'Business', 'Health', 
+  'Science', 'World', 'Politics', 'Gaming', 'Music', 'Live', 'Podcasts', 'Anime',
+  'Coding', 'Design', 'Fashion', 'Art', 'Food', 'Travel', 'Education'
+];
+
+interface CategoryStripProps {
+  selected?: string;
+  onSelect?: (category: string) => void;
+}
+
+export function CategoryStrip({ selected = 'All', onSelect }: CategoryStripProps) {
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const fetchCategories = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('categories')
-        .select('name, slug')
-        .eq('is_active', true)
-        .order('display_order');
-
-      if (data && !error && data.length > 0) {
-        setCategories(data);
-      } else {
-        setCategories(CATEGORIES as any);
-      }
-    } catch {
-      setCategories(CATEGORIES as any);
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setShowLeft(scrollLeft > 0);
+      setShowRight(scrollLeft < scrollWidth - clientWidth - 5);
     }
   };
 
   useEffect(() => {
-    fetchCategories();
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
   }, []);
-
-  const allCategories = [{ name: 'GLOBAL HUB', slug: 'all' }, ...categories];
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollTo = direction === 'left' ? scrollLeft - 300 : scrollLeft + 300;
-      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+      const scrollAmount = 300;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <div className="sticky top-20 z-40 glassy-dense border-b border-white/5 py-4 overflow-hidden">
-      {/* Magic Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-red-600/5 via-transparent to-red-600/5 opacity-50 pointer-events-none"></div>
-      
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center gap-6 relative">
-        <div className="flex items-center gap-2 shrink-0 border-r border-zinc-200/50 dark:border-white/5 pr-6 hidden md:flex">
-           <Filter className="w-4 h-4 text-red-600 animate-pulse" />
-           <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Signal Sectors</span>
-        </div>
+    <div className="sticky top-[56px] z-40 w-full bg-white dark:bg-[#0F0F0F] px-4 py-3 flex items-center gap-2 group transition-all duration-300">
+      <div className="relative w-full flex items-center">
+        {/* Left Shadow & Arrow */}
+        <AnimatePresence>
+          {showLeft && (
+            <motion.div 
+               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+               className="absolute left-0 top-0 bottom-0 z-10 flex items-center bg-gradient-to-r from-white dark:from-[#0F0F0F] via-white/90 dark:via-[#0f0f0f]/90 to-transparent pr-12"
+            >
+              <button 
+                 onClick={() => scroll('left')}
+                 className="w-10 h-10 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center transition-colors"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        {/* Scroll Buttons */}
-        <button 
-           onClick={() => scroll('left')}
-           className="absolute left-10 z-10 bg-white/80 dark:bg-black/80 backdrop-blur-3xl p-1.5 rounded-full shadow-2xl border border-white/10 hidden md:block hover:scale-110 transition-transform active:scale-95"
-        >
-           <ChevronLeft className="w-4 h-4 text-red-600" />
-        </button>
-        
+        {/* Categories Scroller */}
         <div 
           ref={scrollRef}
-          className="flex-1 flex overflow-x-auto gap-3 no-scrollbar items-center py-1 relative scroll-smooth mask-horizontal"
+          onScroll={checkScroll}
+          className="flex items-center gap-3 overflow-x-auto no-scrollbar scroll-smooth"
         >
-          {allCategories.map((cat, index) => (
-            <motion.button
-              key={cat.slug}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setSelectedCategory(cat.slug)}
-              className={`flex-shrink-0 px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-[0.25em] transition-all duration-700 relative overflow-hidden group ${
-                selectedCategory === cat.slug
-                  ? 'bg-red-600 text-white shadow-2xl shadow-red-500/30'
-                  : 'bg-zinc-100/50 text-zinc-500 dark:bg-zinc-900/50 dark:text-zinc-600 hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-zinc-800 border-2 border-transparent hover:border-red-600/20'
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => onSelect?.(cat)}
+              className={`yt-pill ${
+                selected === cat ? 'yt-pill-active' : ''
               }`}
             >
-              {cat.name}
-              
-              {selectedCategory === cat.slug && (
-                  <motion.div 
-                     layoutId="magic-indicator"
-                     className="absolute bottom-0 left-0 w-full h-[3px] bg-white opacity-40 shadow-[0_0_15px_white]"
-                  />
-              )}
-              
-              {/* Magic Shine */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </motion.button>
+              {cat}
+            </button>
           ))}
         </div>
 
-        <button 
-           onClick={() => scroll('right')}
-           className="absolute right-10 z-10 bg-white/80 dark:bg-black/80 backdrop-blur-3xl p-1.5 rounded-full shadow-2xl border border-white/10 hidden md:block hover:scale-110 transition-transform active:scale-95"
-        >
-           <ChevronRight className="w-4 h-4 text-red-600" />
-        </button>
-
-        <div className="shrink-0 hidden lg:flex items-center gap-4 bg-zinc-950 px-5 py-3 rounded-2xl shadow-3xl group cursor-pointer border border-white/5 active:scale-95 transition-all">
-           <Zap className="w-4 h-4 text-red-600 fill-current group-hover:animate-bounce" />
-           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Latest Intelligence</span>
-        </div>
+        {/* Right Shadow & Arrow */}
+        <AnimatePresence>
+          {showRight && (
+            <motion.div 
+               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+               className="absolute right-0 top-0 bottom-0 z-10 flex items-center bg-gradient-to-l from-white dark:from-[#0F0F0F] via-white/90 dark:via-[#0f0f0f]/90 to-transparent pl-12"
+            >
+              <button 
+                 onClick={() => scroll('right')}
+                 className="w-10 h-10 rounded-full hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center transition-colors"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
