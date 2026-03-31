@@ -82,7 +82,7 @@ export function NewsGrid() {
              <div className="lg:col-span-5 space-y-8">
                 <div className="space-y-4">
                    <div className="flex items-center gap-3 text-red-600 font-tech font-black text-[10px] uppercase tracking-[0.4em]">
-                      <Zap className="w-4 h-4" /> {featuredArticle.category?.name}
+                      <Zap className="w-4 h-4" /> {featuredArticle?.categories?.name || featuredArticle?.category?.name}
                    </div>
                    <Link to={`/article/${featuredArticle.slug}`}>
                       <h2 className="text-4xl md:text-6xl font-display font-black leading-[0.9] tracking-tighter uppercase dark:text-white hover:text-red-600 transition-colors">
@@ -159,7 +159,7 @@ export function NewsGrid() {
                                       <Clock className="w-3 h-3 text-red-600" />
                                       {new Date(article.published_at!).toLocaleDateString()}
                                       <span className="w-1 h-1 bg-zinc-300 rounded-full"></span>
-                                      {article.category?.name}
+                                      {article.categories?.name || article.category?.name}
                                    </div>
                                    <Link to={`/article/${article.slug}`}>
                                       <h4 className="text-2xl font-display font-black leading-tight uppercase dark:text-white group-hover:text-red-600 transition-colors line-clamp-2">

@@ -5,6 +5,7 @@ import { LATEST_NEWS } from '../data/initialNews'
 
 type Article = Database['public']['Tables']['articles']['Row'] & {
   categories?: { name: string; slug: string; color: string };
+  category?: { name: string; slug: string; color: string };
   profiles?: { username: string; full_name: string; avatar_url: string; bio?: string; social_links?: any };
 }
 
