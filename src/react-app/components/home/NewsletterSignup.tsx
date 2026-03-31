@@ -59,7 +59,7 @@ export function NewsletterSignup() {
                    <div className="w-12 h-0.5 bg-red-600"></div>
                    <span className="text-xs font-black uppercase tracking-[0.4em] text-red-600">Premium Intel</span>
                 </div>
-                <h2 className="text-4xl md:text-7xl font-black text-white leading-[1.05] tracking-tight">
+                <h2 className="text-4xl md:text-7xl font-black text-white leading-[1.05] tracking-tight font-display">
                   The News <br /> 
                   <span className="text-zinc-500">Wait is Over.</span>
                 </h2>
@@ -72,14 +72,14 @@ export function NewsletterSignup() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shrink-0 shadow-lg"><Shield className="w-5 h-5 text-red-500" /></div>
                   <div>
-                    <h4 className="text-white font-black text-sm uppercase tracking-widest mb-1">Zero Spam</h4>
+                    <h4 className="text-white font-black text-sm uppercase tracking-widest mb-1 font-display">Zero Spam</h4>
                     <p className="text-zinc-500 text-xs font-bold leading-relaxed">No bloat. Only critical news signals and market alerts.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shrink-0 shadow-lg"><Zap className="w-5 h-5 text-red-500" /></div>
                   <div>
-                    <h4 className="text-white font-black text-sm uppercase tracking-widest mb-1">Real-Time</h4>
+                    <h4 className="text-white font-black text-sm uppercase tracking-widest mb-1 font-display">Real-Time</h4>
                     <p className="text-zinc-500 text-xs font-bold leading-relaxed">Breaking news delivered within 60 seconds of verification.</p>
                   </div>
                 </div>
@@ -90,8 +90,8 @@ export function NewsletterSignup() {
             <div className="lg:col-span-5">
               <form onSubmit={handleSubmit} className="space-y-6 bg-white/5 backdrop-blur-3xl p-10 md:p-12 rounded-[3.5rem] border border-white/10 shadow-2xl">
                 <div className="space-y-3 mb-8">
-                   <h3 className="text-2xl font-black text-white flex items-center gap-3 uppercase tracking-tighter">
-                      <TrendingUp className="w-6 h-6 text-red-600" /> Join 10M+
+                   <h3 className="text-2xl font-black text-white flex items-center gap-3 uppercase tracking-tighter font-display">
+                      <TrendingUp className="w-6 h-6 text-red-600" /> Join <span className="text-red-600 font-tech">10M+</span>
                    </h3>
                    <p className="text-zinc-500 text-xs font-black uppercase tracking-widest">Readers globally trust Cloud Media.</p>
                 </div>
@@ -103,7 +103,7 @@ export function NewsletterSignup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="ENTER SECURE EMAIL"
-                    className="w-full pl-16 pr-6 py-5 bg-white/10 border-2 border-transparent focus:border-red-600/50 rounded-[2rem] outline-none text-white text-xs font-black placeholder:text-zinc-700 placeholder:tracking-widest transition-all shadow-inner"
+                    className="w-full pl-16 pr-6 py-5 bg-white/10 border-2 border-transparent focus:border-red-600/50 rounded-[2rem] outline-none text-white text-xs font-black placeholder:text-zinc-700 placeholder:tracking-widest transition-all shadow-inner font-tech"
                     disabled={loading || success}
                   />
                 </div>
@@ -111,7 +111,7 @@ export function NewsletterSignup() {
                 <button
                   type="submit"
                   disabled={loading || success}
-                  className={`w-full py-6 px-10 rounded-[2rem] font-black uppercase text-xs tracking-[0.3em] transition-all transform active:scale-95 shadow-2xl ${
+                  className={`w-full py-6 px-10 rounded-[2rem] font-black uppercase text-xs tracking-[0.3em] transition-all transform active:scale-95 shadow-2xl font-tech ${
                     success
                       ? 'bg-green-600 text-white cursor-default'
                       : 'bg-white text-zinc-950 hover:bg-red-600 hover:text-white'
@@ -126,7 +126,7 @@ export function NewsletterSignup() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0 }}
-                        className="flex items-center gap-3 text-red-500 text-[10px] font-black uppercase tracking-widest bg-red-600/5 p-4 rounded-2xl border border-red-600/20"
+                        className="flex items-center gap-3 text-red-500 text-[10px] font-black uppercase tracking-widest bg-red-600/5 p-4 rounded-2xl border border-red-600/20 font-tech"
                      >
                        <X className="w-4 h-4 shrink-0" />
                        <span>{error}</span>
@@ -137,7 +137,7 @@ export function NewsletterSignup() {
                      <motion.div 
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="flex items-center gap-3 text-green-500 text-[10px] font-black uppercase tracking-widest bg-green-600/5 p-4 rounded-2xl border border-green-600/20"
+                        className="flex items-center gap-3 text-green-500 text-[10px] font-black uppercase tracking-widest bg-green-600/5 p-4 rounded-2xl border border-green-600/20 font-tech"
                      >
                        <CheckCircle className="w-4 h-4 shrink-0" />
                        <span>Verification Email Transmitted. Check your inbox.</span>
@@ -145,7 +145,7 @@ export function NewsletterSignup() {
                    )}
                 </AnimatePresence>
 
-                <p className="text-center text-[9px] font-black uppercase tracking-[0.25em] text-zinc-700 leading-relaxed pt-4">
+                <p className="text-center text-[9px] font-black uppercase tracking-[0.25em] text-zinc-700 leading-relaxed pt-4 font-tech">
                    Encrypted by Cloud AI. <br /> Unsubscribe anytime with one tap.
                 </p>
               </form>

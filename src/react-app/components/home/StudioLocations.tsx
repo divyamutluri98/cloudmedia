@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Globe, Navigation, ExternalLink, Calendar, Users, Briefcase, Radio, Satellite, ShieldCheck, Map, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -112,9 +113,9 @@ export function StudioLocations() {
                             </div>
                             
                             <div className="pt-8 border-t border-zinc-200 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
-                                <button className="text-[10px] font-black uppercase text-zinc-950 dark:text-zinc-200 hover:text-red-600 transition-all flex items-center gap-2 group/link hover:tracking-widest">
+                                <Link to="/about" className="text-[10px] font-black uppercase text-zinc-950 dark:text-zinc-200 hover:text-red-600 transition-all flex items-center gap-2 group/link hover:tracking-widest">
                                     Scan Studio <ExternalLink className="w-3 h-3 group-hover/link:scale-125 transition-transform" />
-                                </button>
+                                </Link>
                                 <Button variant="ghost" className="w-full sm:w-auto h-12 bg-white dark:bg-zinc-900 text-zinc-950 dark:text-zinc-50 text-[10px] font-black border border-zinc-200 dark:border-zinc-800 rounded-2xl uppercase hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all shadow-md active:scale-95">UPLINK_GPS</Button>
                             </div>
                         </CardContent>
@@ -137,9 +138,11 @@ export function StudioLocations() {
                    <p className="text-xs font-bold text-zinc-500 uppercase tracking-tight max-w-sm">We are deploying world-class journalists and AI architects to the signal frontlines.</p>
                 </div>
                 
-                <Button className="w-full h-16 bg-white text-black hover:bg-red-600 hover:text-white rounded-[2rem] font-black uppercase text-xs tracking-widest transition-all shadow-2xl active:scale-95 group/careers">
-                   EXPLORE DEPLOYMENTS <ChevronRight className="ml-2 w-4 h-4 group-hover/careers:translate-x-2 transition-all" />
-                </Button>
+                <Link to="/careers" className="block">
+                   <Button className="w-full h-16 bg-white text-black hover:bg-red-600 hover:text-white rounded-[2rem] font-black uppercase text-xs tracking-widest transition-all shadow-2xl active:scale-95 group/careers cursor-pointer pointer-events-auto">
+                      EXPLORE DEPLOYMENTS <ChevronRight className="ml-2 w-4 h-4 group-hover/careers:translate-x-2 transition-all" />
+                   </Button>
+                </Link>
                 
                 <div className="flex items-center gap-6 bg-white/5 p-6 rounded-[2.5rem] border border-white/5">
                    <div className="w-12 h-12 bg-red-600/20 rounded-full flex items-center justify-center border border-red-600/30">

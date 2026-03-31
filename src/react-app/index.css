@@ -5,27 +5,22 @@
 @layer base {
   :root {
     /* Cloud Media News Brand Colors */
-    /* Navy: #0A1628 | Crimson: #C8102E | Gold: #F4A300 | White: #FFFFFF */
-    
-    --background: 0 0% 98%;
+    --background: 0 0% 100%;
     --foreground: 216 54% 10%;
     --card: 0 0% 100%;
     --card-foreground: 216 54% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 216 54% 10%;
     
-    /* Primary = Crimson Red */
     --primary: 352 85% 42%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary = Navy Blue */
     --secondary: 216 54% 10%;
     --secondary-foreground: 0 0% 100%;
     
     --muted: 216 20% 95%;
     --muted-foreground: 216 20% 40%;
     
-    /* Accent = Gold */
     --accent: 40 95% 48%;
     --accent-foreground: 216 54% 10%;
     
@@ -36,41 +31,21 @@
     --input: 216 20% 88%;
     --ring: 352 85% 42%;
     --radius: 0.4rem;
-    
-    /* Brand specific */
-    --navy: 216 54% 10%;
-    --crimson: 352 85% 42%;
-    --gold: 40 95% 48%;
-    
-    --chart-1: 352 85% 42%;
-    --chart-2: 216 54% 30%;
-    --chart-3: 40 95% 48%;
-    --chart-4: 352 70% 55%;
-    --chart-5: 216 40% 50%;
-    
-    --sidebar: 216 54% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 352 85% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 216 40% 18%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 216 40% 20%;
-    --sidebar-ring: 352 85% 42%;
   }
 
   .dark {
-    --background: 216 54% 6%;
-    --foreground: 0 0% 95%;
-    --card: 216 50% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 216 50% 10%;
-    --popover-foreground: 0 0% 95%;
+    --background: 216 54% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
     
     --primary: 352 85% 50%;
     --primary-foreground: 0 0% 100%;
     
     --secondary: 216 40% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary-foreground: 0 0% 98%;
     
     --muted: 216 40% 15%;
     --muted-foreground: 216 15% 60%;
@@ -81,28 +56,9 @@
     --destructive: 0 72% 50%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 216 30% 18%;
-    --input: 216 30% 20%;
+    --border: 216 30% 12%;
+    --input: 216 30% 12%;
     --ring: 352 85% 50%;
-    
-    --navy: 216 54% 10%;
-    --crimson: 352 85% 50%;
-    --gold: 40 95% 50%;
-    
-    --chart-1: 352 85% 50%;
-    --chart-2: 216 54% 40%;
-    --chart-3: 40 95% 50%;
-    --chart-4: 352 70% 60%;
-    --chart-5: 216 40% 55%;
-    
-    --sidebar: 216 54% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 352 85% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 216 40% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 216 30% 18%;
-    --sidebar-ring: 352 85% 50%;
   }
 }
 
@@ -112,27 +68,18 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-red-500/30;
-    font-family: "Inter", system-ui, sans-serif;
+    @apply bg-background text-foreground antialiased selection:bg-red-600/30;
+    font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
     position: relative;
     overflow-x: hidden;
   }
 
-  /* Animated Gradient Background & Grid */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    z-index: -1;
-    background: radial-gradient(circle at 10% 20%, rgba(200, 16, 46, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(10, 22, 40, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(244, 163, 0, 0.02) 0%, transparent 60%);
-    animation: bgRotate 30s linear infinite;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', 'Inter', sans-serif;
+    @apply font-bold tracking-tight uppercase;
   }
 
+  /* Animated Grid Overlay */
   body::after {
     content: "";
     position: fixed;
@@ -142,41 +89,24 @@
     height: 100%;
     z-index: -1;
     background-image: 
-      linear-gradient(rgba(200, 16, 46, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200, 16, 46, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+      linear-gradient(rgba(200, 16, 46, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 16, 46, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
-  }
-
-  @keyframes bgRotate {
-    0% { transform: translate(-25%, -25%) rotate(0deg); }
-    100% { transform: translate(-25%, -25%) rotate(360deg); }
-  }
-
-  .dark body::before {
-    background: radial-gradient(circle at 10% 20%, rgba(200, 16, 46, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(10, 22, 40, 0.2) 0%, transparent 40%);
-  }
-
-  .dark body::after {
-    background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Inter", system-ui, sans-serif;
-    @apply font-black tracking-tighter;
   }
 }
 
 @layer components {
-  .glassy {
-    @apply backdrop-blur-xl bg-white/70 dark:bg-black/60 border border-white/20 dark:border-white/10 shadow-2xl;
+  .font-display {
+    font-family: 'Oswald', sans-serif;
   }
   
-  .glassy-card {
-    @apply transition-all duration-300 hover:shadow-red-500/10 hover:border-red-500/30 hover:bg-white/80 dark:hover:bg-zinc-900/80;
+  .font-tech {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .glassy {
+    @apply backdrop-blur-2xl bg-white/70 dark:bg-black/80 border border-white/20 dark:border-white/10 shadow-2xl;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -185,5 +115,25 @@
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    display: inline-flex;
+    animation: marquee 40s linear infinite;
+    width: max-content;
+  }
+
+  .animate-spin-slow {
+    animation: spin 12s linear infinite;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 }

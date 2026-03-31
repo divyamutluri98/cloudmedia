@@ -139,7 +139,7 @@ export default function CategoryPage() {
                      <div className="w-12 h-0.5 bg-red-600"></div>
                      <span className="text-xs font-black uppercase tracking-[0.4em] text-red-600">Intel Feed</span>
                   </div>
-                  <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
+                  <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none font-display">
                     {category?.name || (slug && slug.charAt(0).toUpperCase() + slug.slice(1))}
                   </h1>
                   {category?.description && (
@@ -148,10 +148,10 @@ export default function CategoryPage() {
                     </p>
                   )}
                   
-                  <div className="flex flex-wrap items-center gap-10 pt-4 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+                  <div className="flex flex-wrap items-center gap-10 pt-4 text-[10px] font-black uppercase tracking-widest text-zinc-500 font-tech">
                      <div className="flex items-center gap-2">
                         <TrendingUp className="w-4 h-4 text-red-600" />
-                        {articles.length}+ Verified Reports
+                        <span className="text-white text-base mr-1">{articles.length}+</span> Verified Reports
                      </div>
                      <div className="flex items-center gap-2">
                         <Filter className="w-4 h-4 text-red-600" />
@@ -177,8 +177,8 @@ export default function CategoryPage() {
                      <ListIcon className="w-5 h-5" />
                   </button>
                </div>
-               <p className="text-xs font-black uppercase tracking-widest text-zinc-400">
-                  Analyzing {articles.length} global news signals
+               <p className="text-xs font-black uppercase tracking-widest text-zinc-400 font-tech">
+                  Analyzing <span className="text-red-500">{articles.length}</span> global news signals
                </p>
             </section>
 
@@ -208,12 +208,12 @@ export default function CategoryPage() {
                          
                          <div className="p-8 flex flex-col justify-between flex-1">
                             <div className="space-y-4">
-                               <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                               <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-widest text-zinc-400 font-tech">
                                   <Calendar className="w-3.5 h-3.5 text-red-600" />
                                   {formatDate(article.published_at)}
                                   <span className="w-1.5 h-1.5 bg-red-600 rounded-full ml-auto animate-pulse"></span>
                                </div>
-                               <h3 className="text-xl md:text-2xl font-black leading-tight uppercase group-hover:text-red-600 transition-colors dark:text-white line-clamp-2">
+                               <h3 className="text-xl md:text-2xl font-black leading-[1.2] uppercase group-hover:text-red-600 transition-colors dark:text-white line-clamp-2 font-display">
                                   {article.title}
                                </h3>
                                {article.excerpt && viewMode === 'list' && (
@@ -222,7 +222,7 @@ export default function CategoryPage() {
                             </div>
                             
                             <div className="flex items-center justify-between pt-6 mt-4 border-t border-zinc-200/50 dark:border-zinc-800/50">
-                               <div className="flex items-center gap-2 text-[10px] font-black uppercase text-zinc-500">
+                               <div className="flex items-center gap-2 text-[10px] font-black uppercase text-zinc-500 font-tech">
                                   <Eye className="w-3.5 h-3.5" />
                                   {article.views_count.toLocaleString()}
                                </div>

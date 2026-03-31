@@ -37,8 +37,10 @@ export function Footer() {
       links: [
         { name: "IT & Startups", path: "/industry/it", icon: Globe },
         { name: "Hyper Finance", path: "/industry/finance", icon: Globe },
-        { name: "Govt & Policy", path: "/industry/govt", icon: Globe },
-        { name: "Urban Infra", path: "/industry/real-estate", icon: Globe },
+        { name: "Sports Pulse", path: "/industry/sports", icon: Globe },
+        { name: "Global Health", path: "/industry/health", icon: Globe },
+        { name: "Entertainment", path: "/industry/entertainment", icon: Globe },
+        { name: "Web3 & Crypto", path: "/industry/crypto", icon: Globe },
       ]
     }
   ];

@@ -1,11 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { HelmetProvider } from 'react-helmet-async';
 import "@/react-app/index.css";
 import "@/react-app/lib/i18n"; // Multi-language support
 import App from "@/react-app/App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <HelmetProvider>
+        <App />
+    </HelmetProvider>
   </StrictMode>
 );

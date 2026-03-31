@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/orbitron": "^5.2.8",
+    "@fontsource/oswald": "^5.2.8",
     "@hono/zod-validator": "^0.5.0",
     "@hookform/resolvers": "^5.2.2",
     "@supabase/auth-helpers-react": "^0.15.0",

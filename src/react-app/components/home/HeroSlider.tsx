@@ -78,7 +78,7 @@ export function HeroSlider() {
     return <div className="h-[500px] md:h-[750px] bg-zinc-950 animate-pulse rounded-[3rem] mx-6 my-4 shadow-2xl relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4">
             <Radio className="w-12 h-12 text-red-600 animate-ping" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600">Re-Initializing Intelligence...</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-600 font-tech">Re-Initializing Intelligence...</span>
         </div>
     </div>;
   }
@@ -140,7 +140,7 @@ export function HeroSlider() {
                   <div className="glassy border-white/10 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-wider text-white">
                     {articles[currentIndex].categories?.name || 'Global News'}
                   </div>
-                  <div className="flex items-center gap-2 text-zinc-300 text-[10px] font-black bg-black/50 px-4 py-2 rounded-full backdrop-blur-3xl uppercase tracking-widest border border-white/5">
+                  <div className="flex items-center gap-2 text-zinc-300 text-[10px] font-black bg-black/50 px-4 py-2 rounded-full backdrop-blur-3xl uppercase tracking-widest border border-white/5 font-tech">
                     <Calendar className="w-3.5 h-3.5 text-red-500" />
                     {formatDate(articles[currentIndex].published_at)}
                   </div>
@@ -148,7 +148,7 @@ export function HeroSlider() {
                 
                 {/* Main Heading */}
                 <Link to={`/article/${articles[currentIndex].slug}`} className="block group/title">
-                  <h1 className="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter group-hover:text-red-500 transition-all duration-700 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                  <h1 className="text-5xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter group-hover:text-red-500 transition-all duration-700 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] font-display">
                     {articles[currentIndex].title}
                   </h1>
                 </Link>
@@ -163,14 +163,14 @@ export function HeroSlider() {
                 {/* Global Metrics Bar (Magic UI element) */}
                 <div className="flex flex-wrap items-center gap-10 pt-6">
                     <div className="flex flex-col gap-1">
-                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Sentiment</span>
+                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest font-tech">Sentiment</span>
                         <div className="flex items-center gap-2">
                             <BarChart2 className="w-4 h-4 text-green-500" />
-                            <span className="text-white font-black text-xs">POSITIVE SIGNAL</span>
+                            <span className="text-white font-black text-xs font-tech tracking-wider">POSITIVE SIGNAL</span>
                         </div>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Confidence</span>
+                        <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest font-tech">Confidence</span>
                         <div className="h-1.5 w-32 bg-white/10 rounded-full overflow-hidden">
                             <motion.div 
                                 initial={{ width: 0 }}
@@ -194,7 +194,7 @@ export function HeroSlider() {
                     </Button>
                   </Link>
                   
-                  <div className="flex items-center gap-3 text-zinc-400 font-black text-[10px] tracking-widest uppercase">
+                  <div className="flex items-center gap-3 text-zinc-400 font-black text-[10px] tracking-widest uppercase font-tech">
                     <Clock className="w-4 h-4 text-zinc-600" />
                     <span>Estimated 6m Pulse</span>
                   </div>
@@ -223,8 +223,8 @@ export function HeroSlider() {
         {/* Global Signal Indicator (Bottom Right) */}
         <div className="absolute bottom-12 right-12 z-20 hidden lg:flex items-center gap-4">
              <div className="flex flex-col items-end gap-1">
-                <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Active Signal</span>
-                <span className="text-white font-black text-xs uppercase">SATCOM_ALPHA_7</span>
+                <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest font-tech">Active Signal</span>
+                <span className="text-white font-black text-xs uppercase font-tech tracking-wider">SATCOM_ALPHA_7</span>
              </div>
              <div className="w-12 h-12 bg-white/5 backdrop-blur-3xl border border-white/10 rounded-2xl flex items-center justify-center p-3">
                 <Radio className="w-full h-full text-red-600 animate-pulse" />

@@ -38,7 +38,7 @@ export function AIPulse() {
               <Badge className="bg-red-600 text-white px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.4em] flex items-center gap-2 border-none">
                  <Sparkles className="w-3.5 h-3.5 animate-bounce" /> NEURAL ACTIVE CORE
               </Badge>
-              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9]">
+              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] font-display">
                  The AI <span className="text-red-600">Pulse</span> <span className="block text-zinc-800">Intelligence Engine</span>
               </h2>
               <p className="text-zinc-500 text-lg md:text-xl font-bold uppercase tracking-tight leading-relaxed">
@@ -52,11 +52,11 @@ export function AIPulse() {
                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">Live Telemetry</span>
               </div>
               <div className="flex items-baseline gap-2">
-                 <span className="text-5xl font-black text-white">2.2</span>
+                 <span className="text-5xl font-black text-white font-tech tracking-wider">2.2</span>
                  <span className="text-xs font-black text-zinc-600 uppercase">Petabytes/sec</span>
               </div>
               <p className="text-[9px] font-black text-zinc-500 uppercase tracking-widest leading-loose">
-                 Global Signal Throughput <br /> Capacity Reached: <span className="text-green-500">OPTIMAL</span>
+                 Global Signal Throughput <br /> Capacity Reached: <span className="text-green-500 font-tech">OPTIMAL</span>
               </p>
            </div>
         </div>
@@ -85,15 +85,15 @@ export function AIPulse() {
                  
                  <CardContent className="px-8 pb-10 space-y-6">
                     <div className="flex items-baseline gap-2">
-                       <span className="text-4xl font-black text-white">{metric.value}%</span>
+                       <span className="text-4xl font-black text-white font-tech tracking-wider">{metric.value}%</span>
                        <span className="text-[10px] font-black text-zinc-700 uppercase">SIGNAL</span>
                     </div>
                     
                     <div className="space-y-3">
                        <Progress value={metric.value} className="h-1.5 bg-zinc-900 border-none dark:bg-zinc-800" />
                        <div className="flex justify-between text-[8px] font-black text-zinc-600 uppercase tracking-widest">
-                          <span>Latency: 2ms</span>
-                          <span className="text-green-500">SYNCHRONIZED</span>
+                          <span className="font-tech">Latency: 2ms</span>
+                          <span className="text-green-500 font-tech">SYNCHRONIZED</span>
                        </div>
                     </div>
                  </CardContent>
@@ -113,7 +113,7 @@ export function AIPulse() {
                  </div>
                  <div className="space-y-1">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-red-600">Model Deployment</span>
-                    <h3 className="text-xl font-black uppercase tracking-tighter text-white">CLOUDMEDIA-X-V3.9</h3>
+                    <h3 className="text-xl font-black uppercase tracking-tighter text-white font-tech tracking-widest">CLOUDMEDIA-X-V3.9</h3>
                  </div>
               </div>
               
@@ -126,7 +126,7 @@ export function AIPulse() {
                     transition={{ duration: 2, repeat: Infinity }}
                     className="w-2.5 h-2.5 bg-green-500 rounded-full shadow-[0_0_10px_#22c55e]"
                  />
-                 <span className="text-zinc-600">MISSION READY</span>
+                 <span className="text-zinc-600 font-tech text-[10px]">MISSION READY</span>
               </div>
            </div>
         </div>

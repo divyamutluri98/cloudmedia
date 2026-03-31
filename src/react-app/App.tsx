@@ -1,21 +1,43 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "@/react-app/pages/Home";
 import ArticleDetail from "@/react-app/pages/public/ArticleDetail";
 import CategoryPage from "@/react-app/pages/public/Category";
 import Login from "@/react-app/pages/auth/Login";
 import { InfoPage } from "@/react-app/pages/InfoPage";
-import { Globe, Cpu, Briefcase, Shield, Info, Rocket, Zap, BarChart, Newspaper, DollarSign, Landmark, Home as HomeIcon, Award, MessageSquare } from 'lucide-react';
+import { Globe, Cpu, Briefcase, Shield, Info, Rocket, Zap, BarChart, Newspaper, DollarSign, Landmark, Home as HomeIcon, Award, MessageSquare, PlaySquare, History, Clapperboard, Clock, ThumbsUp, TrendingUp, Trophy, Music2, Flame, Video, Star, HeartPulse } from 'lucide-react';
 
 export default function App() {
 
   return (
     <Router>
       <Routes>
+        {/* Core Media Feeds */}
         <Route path="/" element={<Home />} />
         <Route path="/category/:slug" element={<CategoryPage />} />
         <Route path="/article/:slug" element={<ArticleDetail />} />
+        <Route path="/video/:slug" element={<ArticleDetail />} /> {/* Video acts as article detail for now */}
+        
+        {/* Hub / Feed Navigation (Sidebar & Strip) */}
+        <Route path="/news" element={<CategoryPage />} />
+        <Route path="/shorts" element={<CategoryPage />} /> {/* Placeholder to Category for feeds */}
+        <Route path="/gallery" element={<CategoryPage />} />
+        <Route path="/videos" element={<CategoryPage />} />
+        <Route path="/live" element={<CategoryPage />} />
+        
+        <Route path="/subscriptions" element={<Navigate to="/login" replace />} />
+        <Route path="/history" element={<Navigate to="/login" replace />} />
+        <Route path="/your-videos" element={<Navigate to="/login" replace />} />
+        <Route path="/watch-later" element={<Navigate to="/login" replace />} />
+        <Route path="/liked" element={<Navigate to="/login" replace />} />
+
+        <Route path="/trending" element={<CategoryPage />} />
+        <Route path="/sport" element={<CategoryPage />} />
+        <Route path="/entertainment" element={<CategoryPage />} />
+
+        {/* Auth / Identity */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Login />} />
+        <Route path="/account" element={<Navigate to="/login" replace />} /> {/* Placeholder protected route */}
         
         {/* Corporate Pages - High Fidelity */}
         <Route path="/about" element={
@@ -104,6 +126,66 @@ export default function App() {
           />
         } />
 
+        <Route path="/industry/sports" element={
+          <InfoPage 
+            title="Sports Pulse" 
+            description="From Cricket World Cups to Olympic arenas, we cover the soul of the game."
+            industryCards={[
+              { title: "Cricket", desc: "IPL, World Cups, and Test match analytics.", icon: Award },
+              { title: "Olympics", desc: "Global athletics and multisport dominance.", icon: Globe },
+              { title: "Analysis", desc: "Deep metrics on performance and strategy.", icon: BarChart },
+            ]}
+            sections={[
+              { title: "Cricket: The Religion", content: "How the subcontinent dominates the global cricket economy.", icon: Award }
+            ]}
+          />
+        } />
+
+        <Route path="/industry/entertainment" element={
+          <InfoPage 
+            title="Entertainment & Media" 
+            description="Hollywood, Bollywood, Tollywood, and the future of streaming."
+            industryCards={[
+              { title: "Cinema", desc: "Box office, reviews and industry shifts.", icon: Video },
+              { title: "Streaming", desc: "The AI revolution in content delivery.", icon: Zap },
+              { title: "Trends", desc: "Viral culture and global media movements.", icon: Star },
+            ]}
+            sections={[
+              { title: "Beyond The Screen", content: "How immersive tech is redefining the cinematic experience.", icon: Cpu }
+            ]}
+          />
+        } />
+
+        <Route path="/industry/health" element={
+          <InfoPage 
+            title="Health & Biotech" 
+            description="Medical breakthroughs, global wellness, and pharmaceutical innovation."
+            industryCards={[
+              { title: "Biotech", desc: "The future of genetic and medical engineering.", icon: Cpu },
+              { title: "Wellness", desc: "Global shifts in longevity and mental health.", icon: HeartPulse },
+              { title: "Crisis Intel", desc: "Real-time tracking of global health signals.", icon: Shield },
+            ]}
+            sections={[
+              { title: "The Longevity Era", content: "How biotechnology is extending the human lifespan.", icon: Zap }
+            ]}
+          />
+        } />
+
+        <Route path="/industry/crypto" element={
+          <InfoPage 
+            title="Crypto & Web3" 
+            description="Decentralized finance, blockchain infrastructure, and the new internet."
+            industryCards={[
+              { title: "Blockchain", desc: "The backbone of secure, decentralized data.", icon: Shield },
+              { title: "DeFi", desc: "Algorithm-driven financial independence.", icon: DollarSign },
+              { title: "Web3", desc: "The transition to consumer-owned digital spaces.", icon: Globe },
+            ]}
+            sections={[
+              { title: "Tokenized Future", content: "Transitioning global assets into the digital ledger.", icon: Landmark }
+            ]}
+          />
+        } />
+
         <Route path="/industry/govt" element={
           <InfoPage 
             title="Govt & Policy" 
@@ -156,6 +238,41 @@ export default function App() {
             sections={[
               { title: "Truth Protocol", content: "How we verify information across 56+ languages using MCP.", icon: Shield },
               { title: "Impartiality", content: "Maintaining a neutral voice in a polarized global landscape.", icon: Award }
+            ]}
+          />
+        } />
+        
+        <Route path="/cookies" element={
+          <InfoPage 
+            title="Encryption & Cookies" 
+            description="How we use local storage to maintain session fidelity."
+            sections={[
+              { title: "Session Integrity", content: "Only essential cookies are stored to maintain your secure uplink.", icon: Shield }
+            ]}
+          />
+        } />
+        <Route path="/news" element={
+          <InfoPage 
+            title="Intelligence Stream" 
+            description="Real-time synchronized data processing from 125+ strategic global nodes."
+            industryCards={[
+              { title: "Live Feed", desc: "Constant stream of high-fidelity news protocols.", icon: Radio },
+              { title: "Verified", desc: "100% agent-verified intelligence signals.", icon: Shield },
+              { title: "Global", desc: "Localized intelligence for 56+ regions.", icon: Globe },
+            ]}
+            sections={[
+              { title: "The News Engine", content: "Powered by FastAPI and LangChain, our agents synthesize news with 0.1s latency.", icon: Zap }
+            ]}
+          />
+        } />
+
+        <Route path="/cookies" element={
+          <InfoPage 
+            title="Encryption Keys" 
+            description="Managing your digital footprint across the CloudMedia Network."
+            sections={[
+              { title: "Data Logic", content: "We use high-fidelity tracking protocols only for experience optimization.", icon: Shield },
+              { title: "Opt-Out", content: "Your right to disconnect is absolute. Control your encryption keys here.", icon: Info }
             ]}
           />
         } />

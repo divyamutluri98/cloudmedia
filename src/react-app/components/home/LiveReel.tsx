@@ -48,7 +48,7 @@ export function LiveReel() {
       
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-1">
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter flex items-center gap-3">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter flex items-center gap-3 font-display">
             <RadioTower className="w-8 h-8 text-red-600 animate-pulse" />
             Live Intelligence
             </h2>
@@ -66,7 +66,7 @@ export function LiveReel() {
               ))}
            </div>
            <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">
-              <span className="text-red-600 font-black animate-pulse mr-2">940K</span> Watching Now
+              <span className="text-red-600 font-black animate-pulse mr-2 font-tech text-base tracking-wider">940K</span> Watching Now
            </span>
         </div>
       </div>
@@ -93,7 +93,7 @@ export function LiveReel() {
                 <Badge className="bg-red-600 text-white px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] animate-pulse">
                    <Wifi className="w-3.5 h-3.5 mr-2 animate-bounce" /> LIVE STREAM
                 </Badge>
-                <div className="glassy border-white/10 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-white">
+                <div className="glassy border-white/10 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-white font-tech">
                    {LIVE_FEEDS[activeFeed].type}
                 </div>
               </div>
@@ -103,16 +103,16 @@ export function LiveReel() {
                    <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-blink"></div>
                    <span className="text-[10px] font-black uppercase tracking-widest text-white">{LIVE_FEEDS[activeFeed].location}</span>
                 </div>
-                <h3 className="text-3xl md:text-6xl font-black text-white leading-none uppercase tracking-tighter max-w-4xl">
+                <h3 className="text-3xl md:text-6xl font-black text-white leading-none uppercase tracking-tighter max-w-4xl font-display">
                   {LIVE_FEEDS[activeFeed].title}
                 </h3>
                 
                 <div className="flex items-center gap-10 pt-4">
-                   <div className="flex items-center gap-2 text-red-500 font-black text-xs uppercase">
+                   <div className="flex items-center gap-2 text-red-500 font-black text-xs uppercase font-tech">
                       <Eye className="w-5 h-5 animate-pulse" />
                       {LIVE_FEEDS[activeFeed].viewers.toLocaleString()} VIEWS
                    </div>
-                   <div className="flex items-center gap-3 text-zinc-400 font-black text-[10px] uppercase tracking-widest">
+                   <div className="flex items-center gap-3 text-zinc-400 font-black text-[10px] uppercase tracking-widest font-tech">
                       <Zap className="w-4 h-4" /> LATENCY: 22ms
                    </div>
                 </div>
@@ -137,11 +137,11 @@ export function LiveReel() {
                      <img src={feed.thumbnail} className="w-full h-full object-cover" />
                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
                      <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
-                        <div className="flex items-center gap-2 text-[8px] font-black text-white uppercase tracking-widest">
+                        <div className="flex items-center gap-2 text-[8px] font-black text-white uppercase tracking-widest font-tech">
                            <div className={`w-1.5 h-1.5 rounded-full ${activeFeed === idx ? 'bg-red-600 animate-pulse' : 'bg-zinc-500'}`}></div>
                            {feed.type}
                         </div>
-                        <h4 className="text-xs font-black text-white uppercase line-clamp-1 mt-1">{feed.title}</h4>
+                        <h4 className="text-xs font-black text-white uppercase line-clamp-1 mt-1 font-display">{feed.title}</h4>
                      </div>
                   </div>
                </CardContent>
@@ -153,8 +153,8 @@ export function LiveReel() {
                 <span className="text-[10px] font-black uppercase tracking-widest">Upcoming Signal</span>
                 <Wifi className="w-4 h-4" />
              </div>
-             <h4 className="text-sm font-black uppercase leading-tight">FED INTEREST RATE ANNOUNCEMENT: GLOBAL MARKET REACTION</h4>
-             <span className="bg-black/20 px-3 py-1 rounded-lg text-[9px] font-black inline-block">14:00 GMT</span>
+             <h4 className="text-sm font-black uppercase leading-[1.2] font-display">FED INTEREST RATE ANNOUNCEMENT: GLOBAL MARKET REACTION</h4>
+             <span className="bg-black/20 px-3 py-1 rounded-lg text-[9px] font-black inline-block font-tech">14:00 GMT</span>
           </div>
         </div>
       </div>

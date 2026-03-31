@@ -50,7 +50,7 @@ export default function Login() {
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] -z-10"></div>
         
         {/* Floating Binary background effect */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03] select-none text-[8px] font-mono leading-none break-all dark:text-white">
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03] select-none text-[8px] leading-none break-all dark:text-white font-tech">
             {Array.from({ length: 50 }).map((_, i) => (
                 <div key={i} className="whitespace-nowrap">
                     {Math.random() > 0.5 ? "10110100101111000101010101101010101010101010" : "00101101010101101011010101011010101010101010"}
@@ -73,7 +73,7 @@ export default function Login() {
                       <div className="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center transform rotate-12 shadow-2xl shadow-red-600/20">
                          <Rocket className="w-6 h-6" />
                       </div>
-                      <h2 className="text-4xl font-black uppercase tracking-tighter leading-none">
+                      <h2 className="text-4xl font-black uppercase tracking-tighter leading-none font-display">
                          Synchronize <br /> <span className="text-red-500">Global Pulse</span>
                       </h2>
                       <p className="text-zinc-600 text-xs font-black uppercase tracking-widest leading-loose">
@@ -82,7 +82,7 @@ export default function Login() {
                    </div>
                    
                    <div className="relative z-10 space-y-4">
-                      <div className="flex items-center gap-3 text-[10px] font-black uppercase text-zinc-500 tracking-widest">
+                      <div className="flex items-center gap-3 text-[10px] font-black uppercase text-zinc-500 tracking-widest font-tech">
                          <ShieldCheck className="w-4 h-4 text-green-500" />
                          Satellite Encryption: v4.2
                       </div>
@@ -103,7 +103,7 @@ export default function Login() {
                     <Badge variant="secondary" className="bg-red-500/10 text-red-600 border-none px-3 py-1 rounded-lg text-[8px] font-black tracking-widest">
                        AUTHENTICATION
                     </Badge>
-                    <CardTitle className="text-3xl font-black uppercase tracking-tighter dark:text-white">
+                    <CardTitle className="text-3xl font-black uppercase tracking-tighter dark:text-white font-display">
                        {isRegistering ? 'Create Signal' : 'Secure Entry'}
                     </CardTitle>
                     <CardDescription className="text-zinc-500 font-bold text-xs uppercase tracking-tight">
@@ -138,7 +138,7 @@ export default function Login() {
                                 placeholder="FULL NAME"
                                 value={formData.fullName}
                                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                                className="pl-12 bg-zinc-100/50 dark:bg-zinc-900/50 border-none rounded-2xl h-12 text-xs font-bold focus-visible:ring-2 ring-red-600 transition-all uppercase placeholder:text-zinc-600"
+                                className="pl-12 pr-4 bg-zinc-100/50 dark:bg-zinc-900/50 border-none rounded-2xl h-12 text-xs font-bold focus-visible:ring-2 ring-red-600 transition-all uppercase placeholder:text-zinc-600 font-tech"
                               />
                            </div>
                         </div>
@@ -154,7 +154,7 @@ export default function Login() {
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             placeholder="COMM_LINK@CLOUD.INC"
                             required
-                            className="pl-12 bg-zinc-100/50 dark:bg-zinc-900/50 border-none rounded-2xl h-12 text-xs font-bold focus-visible:ring-2 ring-red-600 transition-all uppercase placeholder:text-zinc-600"
+                            className="pl-12 pr-4 bg-zinc-100/50 dark:bg-zinc-900/50 border-none rounded-2xl h-12 text-xs font-bold focus-visible:ring-2 ring-red-600 transition-all uppercase placeholder:text-zinc-600 font-tech"
                           />
                         </div>
                       </div>
@@ -169,7 +169,7 @@ export default function Login() {
                             onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                             placeholder="••••••••"
                             required
-                            className="pl-12 pr-12 bg-zinc-100/50 dark:bg-zinc-900/50 border-none rounded-2xl h-12 text-xs font-bold focus-visible:ring-2 ring-red-600 transition-all uppercase placeholder:text-zinc-600"
+                            className="pl-12 pr-12 bg-zinc-100/50 dark:bg-zinc-900/50 border-none rounded-2xl h-12 text-xs font-bold focus-visible:ring-2 ring-red-600 transition-all uppercase placeholder:text-zinc-600 font-tech tracking-[0.3em]"
                           />
                           <button
                             type="button"
@@ -188,15 +188,15 @@ export default function Login() {
                            <input type="checkbox" className="absolute inset-0 opacity-0 cursor-pointer" />
                            <div className="w-2 h-2 bg-red-600 rounded-sm scale-0 transition-transform"></div>
                         </div>
-                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">Auto-Sync</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-red-500 transition-colors">Auto-Sync</span>
                       </label>
-                      <button type="button" className="text-[10px] font-black uppercase tracking-widest text-red-600 hover:tracking-[0.2em] transition-all">Forgot Origin?</button>
+                      <button type="button" className="text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-red-600 hover:tracking-[0.2em] transition-all">Forgot Origin?</button>
                     </div>
 
                     <Button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full h-14 bg-red-600 hover:bg-zinc-950 dark:hover:bg-white dark:hover:text-black text-white rounded-2xl font-black uppercase text-xs tracking-widest transition-all shadow-xl shadow-red-500/20 active:scale-95 flex items-center justify-center gap-3 group/btn"
+                      className="w-full h-14 bg-red-600 hover:bg-zinc-950 dark:hover:bg-white dark:hover:text-black text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] transition-all shadow-xl shadow-red-500/20 active:scale-95 flex items-center justify-center gap-3 group/btn font-tech"
                     >
                       {isLoading ? 'Processing Signal...' : (isRegistering ? 'Finalize Protocol' : 'Verify Identity')}
                       <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-2 transition-transform" />
@@ -241,7 +241,7 @@ export default function Login() {
           </Card>
           
           <footer className="mt-12 text-center opacity-30">
-             <p className="text-[8px] font-black uppercase tracking-[0.5em] text-zinc-500">Cloud Media Intelligence Network v4.9.0 - SSL SECURED</p>
+             <p className="text-[8px] font-black uppercase tracking-[0.5em] text-zinc-500 font-tech">Cloud Media Intelligence Network v4.9.0 - SSL SECURED</p>
           </footer>
         </motion.div>
       </div>

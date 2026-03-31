@@ -82,13 +82,75 @@ export const LATEST_NEWS = [
     is_breaking: true,
     is_featured: true,
     is_trending: true
+  },
+  {
+    id: '5',
+    title: 'Global Cricket Council Unveils AI-Driven "Smart Pitch" Technology',
+    excerpt: 'The future of cricket joins the digital era with neural-network embedded pitches that provide real-time ballistic data for every delivery.',
+    content: `
+      <p>The Global Cricket Council (GCC) has partnered with CloudMedia Tech Hub to install "Smart Pitch" technology across all major international venues for the 2026 season.</p>
+      <p>Embedded with 500+ pressure and ballistic sensors, the new pitches provide data on seam movement, bounce variance, and spin deviations in milliseconds—synced directly to the broadcast stream.</p>
+    `,
+    category_id: 'sports',
+    category: { name: 'Sports', slug: 'sports', color: '#f59e0b' },
+    author_id: '1',
+    profiles: { full_name: 'Sarah Chen', avatar_url: 'https://i.pravatar.cc/150?u=sarah' },
+    featured_image: 'https://images.unsplash.com/photo-1531415074968-036ba1b565da?auto=format&fit=crop&q=80&w=1000',
+    published_at: '2026-03-31T12:00:00Z',
+    views_count: 5600,
+    slug: 'global-cricket-smart-pitch-ai',
+    is_breaking: true,
+    is_featured: true,
+    is_trending: true
+  },
+  {
+    id: '6',
+    title: 'Holographic Streaming: The New Frontier of Global Entertainment',
+    excerpt: 'CloudMedia Entertainment Hub explores the transition from 2D screens to volumetric holographic projection for home consumers.',
+    content: `
+      <p>Entertainment is no longer bound by a frame. New volumetric holographic projectors are hitting the global market, allowing fans to watch live concerts and sports in 3D in their living rooms.</p>
+    `,
+    category_id: 'entertainment',
+    category: { name: 'Entertainment', slug: 'entertainment', color: '#ec4899' },
+    author_id: '2',
+    profiles: { full_name: 'Marcus Thorne', avatar_url: 'https://i.pravatar.cc/150?u=marcus' },
+    featured_image: 'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&q=80&w=1000',
+    published_at: '2026-03-31T14:30:00Z',
+    views_count: 8900,
+    slug: 'holographic-streaming-entertainment-future',
+    is_breaking: false,
+    is_featured: true,
+    is_trending: true
+  },
+  {
+    id: '7',
+    title: 'Blockchain for Health: Securing Global Medical Records',
+    excerpt: 'The Health Hub reports on the mission-critical transition of global medical data to decentralized ledgers for privacy and speed.',
+    content: `
+      <p>Medical data security is undergoing a massive shift. Hospitals across the globe are adopting blockchain protocols to store patient records securely, ensuring 0% data mismatch and high-fidelity access for practitioners.</p>
+    `,
+    category_id: 'health',
+    category: { name: 'Health', slug: 'health', color: '#ef4444' },
+    author_id: '3',
+    profiles: { full_name: 'David Lowery', avatar_url: 'https://i.pravatar.cc/150?u=david' },
+    featured_image: 'https://images.unsplash.com/photo-1576091160550-2173599211d0?auto=format&fit=crop&q=80&w=1000',
+    published_at: '2026-03-31T16:00:00Z',
+    views_count: 3400,
+    slug: 'blockchain-health-records-security',
+    is_breaking: true,
+    is_featured: false,
+    is_trending: true
   }
 ];
 
 export const CATEGORIES = [
   { id: 'tech', name: 'Technology', slug: 'tech', color: '#3b82f6' },
   { id: 'business', name: 'Business', slug: 'business', color: '#10b981' },
-  { id: 'ai', name: 'Artificial Intelligence', slug: 'ai', color: '#a855f7' },
-  { id: 'gadgets', name: 'Gadgets', slug: 'gadgets', color: '#f59e0b' },
-  { id: 'policy', name: 'Policy', slug: 'policy', color: '#ef4444' }
+  { id: 'ai', name: 'AI & Agents', slug: 'ai', color: '#a855f7' },
+  { id: 'sports', name: 'Sports', slug: 'sports', color: '#f59e0b' },
+  { id: 'entertainment', name: 'Entertainment', slug: 'entertainment', color: '#ec4899' },
+  { id: 'health', name: 'Health & Biotech', slug: 'health', color: '#ef4444' },
+  { id: 'crypto', name: 'Web3 & Crypto', slug: 'crypto', color: '#6366f1' },
+  { id: 'finance', name: 'Global Finance', slug: 'finance', color: '#10b981' },
+  { id: 'govt', name: 'Govt & Policy', slug: 'govt', color: '#64748b' }
 ];
